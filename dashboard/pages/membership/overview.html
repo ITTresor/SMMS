@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Overview</title>
+    <link rel="stylesheet" href="overview.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Add Chart.js -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Admin Dashboard - Membership Overview</h1>
+
+        <!-- Dashboard Summary -->
+        <div class="section">
+            <h2>Dashboard Summary</h2>
+
+            <div class="content-chart">
+                <div class="content-of">
+                    <ul class="summary">
+                        <li><span>Total Members:</span> <span id="totalMembers"></span></li>
+                        <li><span>Active Members:</span> <span id="activeMembers"></span></li>
+                        <li><span>Expired Memberships:</span> <span id="expiredMembers"></span></li>
+                        <li><span>Pending Renewals:</span> <span id="pendingRenewals"></span></li>
+                        <li><span>New Sign-ups:</span> <span id="newSignups"></span></li>
+                        <li><span>Revenue:</span> <span id="revenue"></span></li>
+                    </ul>
+                </div>
+                <!-- Chart for Membership Stats -->
+                <canvas id="membershipChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <!-- Member List & Details -->
+        <div class="section">
+            <h2>Member List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Tier</th>
+                        <th>Status</th>
+                        <th>Loyalty Points</th>
+                    </tr>
+                </thead>
+                <tbody id="memberTableBody">
+                    <!-- Data inserted dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Membership Upgrades & Renewals -->
+        <div class="section">
+            <h2>Membership Upgrades & Renewals</h2>
+
+            <div class="content-chart">
+                <div class="content-of">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>Current Tier</th>
+                                <th>Requested Upgrade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="upgradeTableBody">
+                            <!-- Data inserted dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Chart for Membership Upgrades -->
+                <canvas id="upgradeChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <!-- Discounts & Loyalty Rewards -->
+        <div class="section">
+            <h2>Discounts & Loyalty Rewards</h2>
+
+            <div class="content-chart">
+                <div class="content-of">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tier</th>
+                                <th>Discount</th>
+                                <th>Redeemed</th>
+                            </tr>
+                        </thead>
+                        <tbody id="discountTableBody">
+                            <!-- Data inserted dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Chart for Discounts & Loyalty Rewards -->
+                <canvas id="discountChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <!-- Reports & Analytics -->
+        <div class="section">
+            <h2>Reports & Analytics</h2>
+            <div class="rt content-chart">
+                <div class="content-of">
+                    <p>Growth Trends: <span id="growthTrends"></span></p>
+                    <p>Revenue Breakdown: <span id="revenueBreakdown"></span></p>
+                    <p>Churn Rate: <span id="churnRate"></span></p>
+                    <p>Popular Membership Tiers: <span id="popularTiers"></span></p>
+                </div>
+                <!-- Chart for Growth Trends -->
+                <canvas id="growthChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <!-- Notifications & Alerts -->
+        <div class="section">
+            <h2>Notifications & Alerts</h2>
+            <ul id="notificationList">
+                <!-- Notifications inserted dynamically -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="overview.js"></script>
+</body>
+
+</html>

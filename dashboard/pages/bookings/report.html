@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Report</title>
+    <link rel="stylesheet" href="report.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js Library -->
+</head>
+<body>
+
+    <div class="report-container">
+        <header>
+            <h1>Booking Report</h1>
+        </header>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <h2>Filters</h2>
+            <label for="filterStatus">Filter by Status:</label>
+            <select id="filterStatus">
+                <option value="">All</option>
+                <option value="Paid">Paid</option>
+                <option value="Pending">Pending</option>
+            </select>
+            <button id="downloadReportBtn">Download Report (CSV)</button>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="report-summary">
+            <h2>Summary</h2>
+            <p>Total Bookings: <span id="totalBookings">0</span></p>
+            <p>Total Paid Bookings: <span id="paidBookings">0</span></p>
+            <p>Total Pending Bookings: <span id="pendingBookings">0</span></p>
+            <p>Total Revenue: <span id="totalRevenue">$0</span></p>
+        </section>
+
+        <!-- Report Details -->
+        <section class="report-details">
+            <h2>Booking Details</h2>
+            <table id="reportTable">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be populated dynamically -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <h2>Booking Charts</h2>
+            <div class="chart-blocks">
+                <div class="canvas-number"><canvas id="bookingPieChart"></canvas></div>
+                <div class="canvas-revenue"><canvas id="revenueBarChart"></canvas></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="report.js"></script>
+</body>
+</html>

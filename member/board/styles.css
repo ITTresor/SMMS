@@ -1,0 +1,287 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.card {
+    background: linear-gradient(45deg, lightgray, lightpink);
+    padding: 20px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.card,
+.card-display {
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #999 #f0f0f0;
+}
+
+.card-details ul {
+    list-style: none;
+}
+
+.card-details ul li {
+    line-height: 1.5;
+}
+
+.card h2 {
+    margin: 10px 0;
+    color: #152c77;
+}
+
+.card .buttons {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.card .buttons button {
+    border-radius: 3px;
+    max-width: 200px;
+}
+
+.card .btn.book {
+    background-color: orange;
+    color: white;
+}
+
+.card-display {
+    flex: 3;
+    background-color: rgb(199, 199, 19);
+    background-image: url(../../images/hero1.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btn {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.upgrade {
+    background-color: blue;
+    color: white;
+}
+
+.renew {
+    background-color: green;
+    color: white;
+}
+
+.cancel {
+    background-color: red;
+    color: white;
+}
+
+.content {
+    display: none;
+    padding: 20px;
+}
+
+.active {
+    display: block;
+}
+
+
+/* Scrollbar for Webkit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+.content {
+    display: none;
+    padding: 20px;
+    border-radius: 3px;
+    background: white;
+    margin: 15px auto;
+    max-width: 500px;
+}
+
+.active {
+    display: block;
+}
+
+.content ul {
+    list-style: none;
+}
+
+form h3 {
+    text-align: center;
+    padding: 20px 0 10px 0;
+}
+
+form {
+    border: #0056b3 solid 1px;
+    margin: 10px 0;
+    padding: 10px 10px 30px 10px;
+    border-radius: 25px 0 15px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+input,
+select,
+button {
+    font-size: 16px;
+    width: 100%;
+}
+
+input,
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#renew p {
+    display: flex;
+    margin: 5px 0;
+}
+
+.logo {
+    background-color: #0056b3;
+    width: 60px;
+}
+
+.number {
+    margin-left: 10px;
+}
+
+.membership-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.membership-card {
+    margin: 0 auto;
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    width: 350px;
+    min-width: 200px;
+    border-radius: 0 15px 0 15px;
+    text-align: left;
+    border: #0056b3 solid 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sub-block {
+        flex: 1 1 100%;
+        /* Full width for mobile */
+    }
+}
+
+.bronze {
+    border-top: 10px solid #cd7f32;
+}
+
+.silver {
+    border-top: 10px solid silver;
+}
+
+.gold {
+    border-top: 10px solid gold;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 3px 0;
+    display: flex;
+    align-items: center;
+}
+
+.tick,
+.cross {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.tick {
+    color: green;
+}
+
+.cross {
+    color: red;
+}
+
+button {
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}

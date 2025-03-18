@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS for dropdown functionality */
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="header">
+        <header>
+            <h1>Sauna Management</h1>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="booking.html">Book a Session</a>
+
+                    </li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="dropdown-content">
+            <a href="booking-facial.html">Facial</a>
+            <a href="booking-sauna.html">Sauna</a>
+            <a href="booking-massage.html">Massage</a>
+            <a href="booking-facial.html">Facial</a>
+            <a href="booking-sauna.html">Sauna</a>
+            <a href="booking-massage.html">Massage</a>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdown = document.querySelector(".dropdown");
+            const dropdownContent = document.querySelector(".dropdown-content");
+
+            dropdown.addEventListener("mouseenter", function () {
+                dropdownContent.style.display = "block";
+            });
+
+            dropdown.addEventListener("mouseleave", function () {
+                dropdownContent.style.display = "none";
+            });
+
+            dropdownContent.addEventListener("mouseenter", function () {
+                dropdownContent.style.display = "block";
+            });
+
+            dropdownContent.addEventListener("mouseleave", function () {
+                dropdownContent.style.display = "none";
+            });
+        });
+
+    </script>
+</body>
+
+</html>

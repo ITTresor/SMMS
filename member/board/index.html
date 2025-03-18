@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-details">
+                <h2>Membership Dashboard</h2>
+                <p>Tier: <strong id="tier">Silver</strong></p>
+                <p>Expiry: <strong id="expiry">March 30, 2025</strong></p>
+                <p>Loyalty Points: <strong id="points">120</strong></p>
+                <p>Discount on Services: <strong id="discount">10%</strong></p>
+                <ul>
+                    <li><span class="tick">✅</span> Extended Sauna & Steam Room Access</li>
+                    <li><span class="tick">✅</span> 10% Discount on Additional Services</li>
+                    <li><span class="tick">✅</span> 2 Free Alternative Healing Sessions per Month</li>
+                    <li><span class="tick">✅</span> 1 Free VIP/Private Sauna Session per Month</li>
+                    <li><span class="tick">✅</span> Faster Loyalty Points Accumulation</li>
+                    <li><span class="tick">✅</span> Priority Booking</li>
+                    <li><span class="tick">✅</span> Detox Drink on Each Visit</li>
+                    <li><span class="cross">❌</span> Aromatherapy Session</li>
+                    <li><span class="cross">❌</span> Personalized Wellness Coaching Session per Month</li>
+                    <li><span class="cross">❌</span> VIP Lounge Access</li>
+                    <li><span class="cross">❌</span> Corporate & Group Priority</li>
+                    <li><span class="cross">❌</span> Oxygen & Aromatherapy Therapy Access</li>
+                </ul>
+            </div>
+            <div class="buttons">
+                <button onclick="showContent('upgrade')" class="btn upgrade">Change Membership</button>
+                <button onclick="showContent('renew')" class="btn renew">Renew Membership</button>
+                <button onclick="showContent('cancel')" class="btn cancel">Cancel Membership</button>
+                <button onclick="showContent('book')" class="btn book">Book Time</button>
+            </div>
+
+        </div>
+        <div class="card-display">
+            <div id="default" class="content active">Welcome! Please choose an action.</div>
+            <div id="upgrade" class="content">
+                <h2>Change Membership</h2>
+                <p>Upgrade your membership to enjoy more benefits.</p>
+                <p>Available Plans:</p>
+                <div class="membership-container">
+
+                    <!-- Bronze Membership -->
+                    <div class="membership-card bronze">
+                        <h2>Bronze Membership</h2>
+                        <ul>
+                            <li><span class="tick">✅</span> Standard Sauna & Steam Room Access</li>
+                            <li><span class="tick">✅</span> 5% Discount on Additional Services</li>
+                            <li><span class="tick">✅</span> 1 Free Alternative Healing Session per Month</li>
+                            <li><span class="cross">❌</span> 1 Free VIP/Private Sauna Session per Month</li>
+                            <li><span class="tick">✅</span> Standard Loyalty Points Accumulation</li>
+                            <li><span class="tick">✅</span> Priority Booking</li>
+                            <li><span class="cross">❌</span> Detox Drink on Each Visit</li>
+                            <li><span class="cross">❌</span> Aromatherapy Session</li>
+                            <li><span class="cross">❌</span> Personalized Wellness Coaching Session per Month</li>
+                            <li><span class="cross">❌</span> VIP Lounge Access</li>
+                            <li><span class="cross">❌</span> Corporate & Group Priority</li>
+                            <li><span class="cross">❌</span> Oxygen & Aromatherapy Therapy Access</li>
+                        </ul>
+                    </div>
+
+                    <!-- Silver Membership -->
+                    <div class="membership-card silver">
+                        <h2>Silver Membership</h2>
+                        <ul>
+                            <li><span class="tick">✅</span> Extended Sauna & Steam Room Access</li>
+                            <li><span class="tick">✅</span> 10% Discount on Additional Services</li>
+                            <li><span class="tick">✅</span> 2 Free Alternative Healing Sessions per Month</li>
+                            <li><span class="tick">✅</span> 1 Free VIP/Private Sauna Session per Month</li>
+                            <li><span class="tick">✅</span> Faster Loyalty Points Accumulation</li>
+                            <li><span class="tick">✅</span> Priority Booking</li>
+                            <li><span class="tick">✅</span> Detox Drink on Each Visit</li>
+                            <li><span class="cross">❌</span> Aromatherapy Session</li>
+                            <li><span class="cross">❌</span> Personalized Wellness Coaching Session per Month</li>
+                            <li><span class="cross">❌</span> VIP Lounge Access</li>
+                            <li><span class="cross">❌</span> Corporate & Group Priority</li>
+                            <li><span class="cross">❌</span> Oxygen & Aromatherapy Therapy Access</li>
+                        </ul>
+                    </div>
+
+                    <!-- Gold Membership -->
+                    <div class="membership-card gold">
+                        <h2>Gold Membership</h2>
+                        <ul></ul>
+                        <li><span class="tick">✅</span> Unlimited Sauna & Steam Room Access</li>
+                        <li><span class="tick">✅</span> 15% Discount on Additional Services</li>
+                        <li><span class="tick">✅</span> 4 Free Alternative Healing Sessions per Month</li>
+                        <li><span class="tick">✅</span> 2 Free VIP/Private Sauna Sessions per Month</li>
+                        <li><span class="tick">✅</span> Fastest Loyalty Points Accumulation</li>
+                        <li><span class="tick">✅</span> Priority Booking</li>
+                        <li><span class="tick">✅</span> Detox Drink on Each Visit</li>
+                        <li><span class="tick">✅</span> Aromatherapy Session on Each Visit</li>
+                        <li><span class="tick">✅</span> 1 Personalized Wellness Coaching Session per Month</li>
+                        <li><span class="tick">✅</span> VIP Lounge Access</li>
+                        <li><span class="tick">✅</span> Corporate & Group Priority</li>
+                        <li><span class="tick">✅</span> Oxygen & Aromatherapy Therapy Access</li>
+                        </ul>
+                    </div>
+
+                </div>
+                </ul>
+                <form action="#" method="get">
+                    <h3>Choose membership plan</h3>
+                    <div class="form-group">
+                        <select name="change-membership" id="change-membership">
+                            <option value="#">select mbembership</option>
+                            <option value="bronze">Bronze</option>
+                            <option value="siliver">Silver</option>
+                            <option value="gold">Gold</option>
+                        </select>
+
+                    </div>
+                    <button>change Now</button>
+                </form>
+            </div>
+            <div id="renew" class="content">
+                <h2>Renew Membership</h2>
+                <p>Renew your membership to continue enjoying services.</p>
+                <p>You can pay on the folloing phone/account:</p>
+                <p><span class="logo">MTN</span><span class="number">+250 788 888 888</span></p>
+                <p><span class="logo">Airtel</span><span class="number">+250 733 333 333</span></p>
+                <p><span class="logo">BK</span><span class="number">5555-5555-5555</span></p>
+                <p><span class="logo">Equity</span><span class="number">7777-7777-7777</span></p>
+                <p><span class="logo">BPR</span><span class="number">3333-3333-3333</span></p>
+            </div>
+            <div id="cancel" class="content">
+                <h2>Cancel Membership</h2>
+                <p>Warning: Canceling your membership will result in loss of benefits.</p>
+                <p>Effects of cancellation:</p>
+                <ul>
+                    <li>1. Loss of exclusive access</li>
+                    <ul style="margin-left: 10px;">
+                        <li><span class="cross">❌</span> Standard Sauna & Steam Room Access</li>
+                        <li><span class="cross">❌</span> 5% Discount on Additional Services</li>
+                        <li><span class="cross">❌</span> 1 Free Alternative Healing Session per Month</li>
+                        <li><span class="cross">❌</span> 1 Free VIP/Private Sauna Session per Month</li>
+                        <li><span class="cross">❌</span> Standard Loyalty Points Accumulation</li>
+                        <li><span class="cross">❌</span> Priority Booking</li>
+                        <li><span class="cross">❌</span> Detox Drink on Each Visit</li>
+                        <li><span class="cross">❌</span> Aromatherapy Session</li>
+                        <li><span class="cross">❌</span> Personalized Wellness Coaching Session per Month</li>
+                        <li><span class="cross">❌</span> VIP Lounge Access</li>
+                        <li><span class="cross">❌</span> Corporate & Group Priority</li>
+                        <li><span class="cross">❌</span> Oxygen & Aromatherapy Therapy Access</li>
+                    </ul>
+                    <li>2. No more discounts</li>
+                    <li>3. Cannot be reversed</li>
+                </ul>
+                <button>Confirm Cancellation</button>
+            </div>
+            <div id="book" class="content">
+                <h2>Book a Time Slot</h2>
+                <p>Select a date and time for your next visit.</p>
+                <form>
+                    <h3>Choose switable time</h3>
+                    <div class="form-group">
+                        <label for="date">Choose Date:</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Choose Time:</label>
+                        <input type="time" id="time" name="time">
+                    </div>
+                    <button type="submit">Book Now</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function showContent(section) {
+            document.querySelectorAll('.content').forEach(div => div.classList.remove('active'));
+            document.getElementById(section).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

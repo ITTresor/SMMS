@@ -1,0 +1,94 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* Notifications List */
+.notifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.notification-card {
+    background-color: #ffffff;
+    border-radius: 0 20px 0 20px;
+    border: 1px solid #aaa;
+    border-left-width: 6px;
+    border-left-color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notification-card .date {
+    font-size: 14px;
+    color: #888;
+}
+
+.notification-card .member {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.notification-card .notification {
+    font-size: 16px;
+    color: #444;
+}
+
+.notification-card .status {
+    font-weight: bold;
+    padding: 3px 0;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* .status-pending {
+    background-color: #f39c12;
+    color: white;
+}
+
+.status-processed {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.status-expired {
+    background-color: #e74c3c;
+    color: white;
+} */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}

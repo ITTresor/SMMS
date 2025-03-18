@@ -1,0 +1,309 @@
+:root {
+    --back1: red;
+    --color1: #000;
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(226, 213, 215);
+    scroll-behavior: smooth;
+}
+
+/* Header Styles */
+header {
+    background: #fff;
+    color: var(--color1);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: sticky;
+    top: 0; */
+    z-index: 1500;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    transition: max-height 0.3s ease-in-out;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--color1);
+    text-decoration: none;
+}
+
+/* Menu Icon (Hidden by Default) */
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+.dropdown-link {
+    position: relative;
+}
+
+.dropdown-link-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100px;
+    z-index: 1;
+    border-radius: 5px;
+    padding-top: 10px;
+}
+
+.dropdown-link-content a {
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-link:hover .dropdown-link-content {
+    display: block;
+}
+
+.top-bar {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    color: white;
+}
+
+.login{
+    border: 1px #000 solid;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+section {
+    margin: 0 auto 20px auto;
+}
+
+/**/
+.dropdown {
+    position: relativ;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fdfdfdfd;
+    width: 100%;
+    overflow-y: auto;
+    max-height: 90vh;
+    padding: 10px;
+    gap: 10px;
+}
+
+.sauna {
+    flex: 0 33.33%;
+}
+
+.sauna .drop-groups {
+    display: flex;
+    gap: 10px;
+}
+
+.massage {
+    flex: 0 66.66%;
+}
+
+.massage .drop-groups {
+    display: flex;
+    gap: 10px;
+}
+
+.dropdown-content h3 {
+    color: #0e0d0d;
+    margin: 10px 0 20px 10px;
+}
+
+.drop-group {
+    flex: 1;
+}
+
+.drop-group ul {
+    list-style: none;
+}
+
+.drop-group ul li {
+    padding: 7px 10px;
+}
+
+.drop-group ul li:hover {
+    background-color: #f0f0f0;
+}
+
+.drop-group ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.drop-groups span {
+    color: #000;
+    margin: 0 0 0 10px;
+    background-color: #777;
+    padding: 0px 5px;
+    border-radius: 50%;
+    /* width: 50px;
+    height: 50px; */
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+}
+
+.header-main {
+    position: sticky;
+    top: 0;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    /* Optional shadow for visibility */
+}
+
+/* Scrollbar for Webkit-based browsers (Chrome, Safari, Edge) */
+.dropdown-content::-webkit-scrollbar {
+    width: 8px;
+    /* Width of the scrollbar */
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    background: #222;
+    /* Track background color */
+    border-radius: 5px;
+    /* Rounded corners */
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background: #555;
+    /* Scrollbar color */
+    border-radius: 5px;
+    /* Rounded scrollbar */
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+    background: #777;
+    /* Hover effect */
+}
+
+/* Scrollbar for Firefox */
+.dropdown-content {
+    scrollbar-width: thin;
+    /* Makes the scrollbar smaller */
+    scrollbar-color: #555 #222;
+    /* Scrollbar color and track color */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        position: absolute;
+        right: 20px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #444;
+        overflow: hidden;
+        max-height: 0;
+    }
+
+    nav ul li {
+        padding: 10px 0;
+        border-bottom: 1px solid #555;
+    }
+
+    /* Slide-down animation */
+    nav ul.show {
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .dropdown-content {
+        flex-direction: column;
+    }
+
+    .massage .drop-groups {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .massage .drop-groups {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .sauna .drop-groups {
+        flex-direction: column;
+    }
+}
+
+.info-wrapper {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    height: 80vh;
+    max-width: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    width: 100%;
+}
+
+.info-content {
+    position: relative;
+    display: flex;
+    gap: 20px;
+}
+
+.info-content h2 {
+    border-right: 10px #1abc9c solid;
+    padding: 20px 0;
+
+}
+
+.info-content p {
+    padding: 20px 0;
+}
+
+.close-btn {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 3rem;
+    color: red;
+}

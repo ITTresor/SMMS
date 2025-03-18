@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sauna Management System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/staff.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <script src="js/script.js"></script>
+    <script>
+        function showInfo(id) {
+            document.getElementById("info-" + id).style.display = "flex";
+        }
+
+        function hideInfo(id) {
+            document.getElementById("info-" + id).style.display = "none";
+        }
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdown = document.querySelector(".dropdown");
+            const dropdownContent = document.querySelector(".dropdown-content");
+
+            dropdown.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevents the click from propagating to the document
+                const isVisible = dropdownContent.style.display === "flex";
+                dropdownContent.style.display = isVisible ? "none" : "flex";
+            });
+
+            document.addEventListener("click", function () {
+                dropdownContent.style.display = "none"; // Hide dropdown when clicking outside
+            });
+
+            dropdownContent.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevents dropdown from closing when clicking inside
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="top-bar">
+        <p>welcome to sauna managment sytem</p>
+    </div>
+    <div class="header-main">
+        <header>
+            <h1>Sauna Management</h1>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li class="dropdown"> <a href="#">Book a Session</a></li>
+                    <li class="dropdown-link">
+                        <a href="#">Membership</a>
+                        <div class="dropdown-link-content">
+                            <a href="member/">Join</a>
+                            <a href="member/login.html">Log In</a>
+                        </div>
+                    </li>
+                    <li><a href="#contact" class="login">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="dropdown-content">
+
+            <div class="massage">
+                <h3>Massage Sessions</h3>
+                <div class="drop-groups">
+                    <div class="drop-group">
+                        <ul>
+                            <li>
+                                <a href="book-session.html">Swedish Massage</a>
+                                <span class="info-btn" onclick="showInfo('swedish')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Deep Tissue Massage</a>
+                                <span class="info-btn" onclick="showInfo('deep-tissue')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Sports Massage</a>
+                                <span class="info-btn" onclick="showInfo('sports')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Hot Stone Massage</a>
+                                <span class="info-btn" onclick="showInfo('hot-stone')">i</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="drop-group">
+                        <ul>
+                            <li>
+                                <a href="book-session.html">Aromatherapy Massage</a>
+                                <span class="info-btn" onclick="showInfo('aromatherapy')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Shiatsu Massage</a>
+                                <span class="info-btn" onclick="showInfo('shiatsu')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Thai Massage</a>
+                                <span class="info-btn" onclick="showInfo('thai')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Reflexology</a>
+                                <span class="info-btn" onclick="showInfo('reflexology')">i</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="drop-group">
+                        <ul>
+                            <li>
+                                <a href="book-session.html">Lomi Lomi Massage</a>
+                                <span class="info-btn" onclick="showInfo('lomi-lomi')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Cupping Therapy</a>
+                                <span class="info-btn" onclick="showInfo('cupping')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Prenatal Massage</a>
+                                <span class="info-btn" onclick="showInfo('prenatal')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Indian Head Massage</a>
+                                <span class="info-btn" onclick="showInfo('indian-head')">i</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="drop-group">
+                        <ul>
+                            <li>
+                                <a href="book-session.html">Myofascial Release</a>
+                                <span class="info-btn" onclick="showInfo('myofascial')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Trigger Point Therapy</a>
+                                <span class="info-btn" onclick="showInfo('trigger-point')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Chair Massage</a>
+                                <span class="info-btn" onclick="showInfo('chair')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Tui Na Massage</a>
+                                <span class="info-btn" onclick="showInfo('tui-na')">i</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="sauna">
+                <h3>Sauna Sessions</h3>
+                <div class="drop-groups">
+                    <div class="drop-group">
+                        <ul>
+                            <li>
+                                <a href="book-session.html">Traditional Finnish Sauna</a>
+                                <span class="info-btn" onclick="showInfo('traditional-finnish')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Infrared Sauna</a>
+                                <span class="info-btn" onclick="showInfo('infrared')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Steam Sauna (Turkish Bath or Hammam)</a>
+                                <span class="info-btn" onclick="showInfo('steam')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Wet Sauna</a>
+                                <span class="info-btn" onclick="showInfo('wet')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Infrared Light Sauna</a>
+                                <span class="info-btn" onclick="showInfo('infrared-light')">i</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="drop-group">
+                        <ul>
+                            <li>
+                                <a href="book-session.html">Salt Sauna</a>
+                                <span class="info-btn" onclick="showInfo('salt')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Bio Sauna</a>
+                                <span class="info-btn" onclick="showInfo('bio')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Russian Banya</a>
+                                <span class="info-btn" onclick="showInfo('russian-banya')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Wooden Sauna</a>
+                                <span class="info-btn" onclick="showInfo('wooden')">i</span>
+                            </li>
+                            <li>
+                                <a href="book-session.html">Portable Sauna</a>
+                                <span class="info-btn" onclick="showInfo('portable')">i</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Swedish Massage -->
+            <div id="info-swedish" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('swedish')">×</span>
+                    <h2>Swedish Massage</h2>
+                    <p>A gentle, relaxing massage that uses long, smooth strokes, kneading, and circular movements. It's
+                        designed to improve circulation, ease muscle tension, and promote relaxation.</p>
+                </div>
+            </div>
+
+            <!-- Deep Tissue Massage -->
+            <div id="info-deep-tissue" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('deep-tissue')">×</span>
+                    <h2>Deep Tissue Massage</h2>
+                    <p>Focuses on the deeper layers of muscle and connective tissue. It uses slow, firm pressure to
+                        target
+                        chronic tension, muscle knots, and injuries. This type of massage is ideal for people with
+                        persistent
+                        pain or stiffness.</p>
+                </div>
+            </div>
+
+            <!-- Sports Massage -->
+            <div id="info-sports" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('sports')">×</span>
+                    <h2>Sports Massage</h2>
+                    <p>Specifically designed for athletes, this massage focuses on preventing and treating injuries
+                        related to
+                        sports activities. It uses techniques like deep tissue massage and stretching to enhance
+                        flexibility,
+                        reduce muscle soreness, and speed up recovery.</p>
+                </div>
+            </div>
+
+            <!-- Hot Stone Massage -->
+            <div id="info-hot-stone" class="info-wrapper">
+                <div class="info-content">
+                    <h2>Hot Stone Massage</h2>
+                    <p>Involves the use of smooth, heated stones placed on specific points on the body. The heat helps
+                        to relax
+                        muscles, improve circulation, and promote relaxation. It's often combined with Swedish massage
+                        techniques.</p>
+                </div>
+            </div>
+
+            <!-- Aromatherapy Massage -->
+            <div id="info-aromatherapy" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('aromatherapy')">×</span>
+                    <h2>Aromatherapy Massage</h2>
+                    <p>Combines essential oils with a relaxing massage. The essential oils are chosen for their
+                        therapeutic
+                        properties, such as stress relief, pain reduction, or mood enhancement. The oils are absorbed
+                        through
+                        the skin and help to improve mental and physical well-being.</p>
+                </div>
+            </div>
+
+            <!-- Shiatsu Massage -->
+            <div id="info-shiatsu" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('shiatsu')">×</span>
+                    <h2>Shiatsu Massage</h2>
+                    <p>A Japanese technique that uses finger, thumb, and palm pressure to stimulate specific pressure
+                        points
+                        along the body’s energy pathways. It aims to balance the body's energy, improve circulation, and
+                        reduce
+                        stress.</p>
+                </div>
+            </div>
+
+            <!-- Thai Massage -->
+            <div id="info-thai" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('thai')">×</span>
+                    <h2>Thai Massage</h2>
+                    <p>A traditional massage that combines stretching, acupressure, and yoga-like movements. The
+                        therapist uses
+                        their hands, feet, elbows, and knees to apply pressure and guide the client into various poses.
+                        It's
+                        designed to improve flexibility, relieve tension, and promote overall relaxation.</p>
+                </div>
+            </div>
+
+            <!-- Reflexology -->
+            <div id="info-reflexology" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('reflexology')">×</span>
+                    <h2>Reflexology</h2>
+                    <p>Focuses on pressure points in the feet, hands, and ears, which are believed to correspond to
+                        different
+                        organs and systems in the body. Reflexology aims to promote healing and relaxation throughout
+                        the entire
+                        body.</p>
+                </div>
+            </div>
+
+            <!-- Lomi Lomi Massage -->
+            <div id="info-lomi-lomi" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('lomi-lomi')">×</span>
+                    <h2>Lomi Lomi Massage</h2>
+                    <p>A Hawaiian massage technique that uses long, flowing strokes and focuses on the mind-body
+                        connection. It
+                        incorporates the use of forearms and elbows to create a rhythmic, soothing experience.</p>
+                </div>
+            </div>
+
+            <!-- Cupping Therapy -->
+            <div id="info-cupping" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('cupping')">×</span>
+                    <h2>Cupping Therapy</h2>
+                    <p>Involves the use of glass or silicone cups that create suction on the skin. This therapy is
+                        believed to
+                        help relieve pain, inflammation, and muscle tension by increasing blood flow and loosening tight
+                        muscles.</p>
+                </div>
+            </div>
+
+            <!-- Prenatal Massage -->
+            <div id="info-prenatal" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('prenatal')">×</span>
+                    <h2>Prenatal Massage</h2>
+                    <p>A massage designed for pregnant women, focusing on relieving the physical discomforts of
+                        pregnancy, such
+                        as back pain, swelling, and fatigue. The therapist uses gentle techniques and supports the body
+                        with
+                        pillows to ensure comfort.</p>
+                </div>
+            </div>
+
+            <!-- Indian Head Massage -->
+            <div id="info-indian-head" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('indian-head')">×</span>
+                    <h2>Indian Head Massage</h2>
+                    <p>Focuses on the head, neck, and shoulders. It involves massaging pressure points to relieve
+                        tension and
+                        stress. It's often used to alleviate headaches, improve circulation, and promote relaxation.</p>
+                </div>
+            </div>
+
+            <!-- Myofascial Release -->
+            <div id="info-myofascial" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('myofascial')">×</span>
+                    <h2>Myofascial Release</h2>
+                    <p>A therapeutic technique that targets the fascia, the connective tissue surrounding muscles. By
+                        applying
+                        gentle, sustained pressure, it helps release tightness and restore movement in the body.</p>
+                </div>
+            </div>
+
+            <!-- Trigger Point Therapy -->
+            <div id="info-trigger-point" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('trigger-point')">×</span>
+                    <h2>Trigger Point Therapy</h2>
+                    <p>Targets specific areas of muscle tightness (trigger points) that cause pain and discomfort. The
+                        therapist
+                        applies direct pressure to these points to release muscle knots and alleviate pain.</p>
+                </div>
+            </div>
+
+            <!-- Chair Massage -->
+            <div id="info-chair" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('chair')">×</span>
+                    <h2>Chair Massage</h2>
+                    <p>A quick, seated massage that targets the back, shoulders, neck, and arms. It's often done in a
+                        chair and
+                        is great for relieving tension in a short amount of time, typically during work breaks.</p>
+                </div>
+            </div>
+
+            <!-- Tui Na Massage -->
+            <div id="info-tui-na" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('tui-na')">×</span>
+                    <h2>Tui Na Massage</h2>
+                    <p>A form of Chinese therapeutic massage that combines kneading, rolling, and pressing to stimulate
+                        the
+                        body's energy channels. It’s often used in conjunction with acupuncture to balance the body's
+                        energy and
+                        relieve pain.</p>
+                </div>
+            </div>
+
+            <!-- Traditional Finnish Sauna -->
+            <div id="info-traditional-finnish" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('traditional-finnish')">×</span>
+                    <h2>Traditional Finnish Sauna</h2>
+                    <p>The most common sauna type, using a wood stove or electric heater to heat stones. The heat is
+                        dry, with
+                        temperatures ranging from 70°C to 100°C (158°F to 212°F). Water can be poured on the stones to
+                        create steam
+                        (known as löyly).</p>
+                </div>
+            </div>
+
+            <!-- Infrared Sauna -->
+            <div id="info-infrared" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('infrared')">×</span>
+                    <h2>Infrared Sauna</h2>
+                    <p>Uses infrared heaters to emit light that is absorbed by the skin, heating the body directly
+                        rather than the
+                        air. This type operates at lower temperatures (typically between 45°C and 60°C or 113°F to
+                        140°F) and
+                        provides a more gentle heat.</p>
+                </div>
+            </div>
+
+            <!-- Steam Sauna -->
+            <div id="info-steam" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('steam')">×</span>
+                    <h2>Steam Sauna (Turkish Bath or Hammam)</h2>
+                    <p>In a steam sauna, water is heated to produce steam that fills the room, creating a humid
+                        environment. The
+                        temperature is usually lower, around 40°C to 50°C (104°F to 122°F), with high humidity (100%).
+                        It’s ideal
+                        for improving circulation and skin health.</p>
+                </div>
+            </div>
+
+            <!-- Wet Sauna -->
+            <div id="info-wet" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('wet')">×</span>
+                    <h2>Wet Sauna</h2>
+                    <p>A mix between the traditional sauna and steam room, it involves both heat and steam. It's
+                        designed for high
+                        humidity but with dry heat. People often pour water on hot stones to increase humidity levels.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Infrared Light Sauna -->
+            <div id="info-infrared-light" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('infrared-light')">×</span>
+                    <h2>Infrared Light Sauna</h2>
+                    <p>This sauna uses a combination of infrared light and heat to promote relaxation and healing. It
+                        operates at a
+                        lower temperature than traditional saunas but provides targeted heat that helps relieve muscle
+                        tension and
+                        detoxify the body.</p>
+                </div>
+            </div>
+
+            <!-- Salt Sauna -->
+            <div id="info-salt" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('salt')">×</span>
+                    <h2>Salt Sauna</h2>
+                    <p>Similar to a traditional sauna, but with salt-lined walls. The heat combined with salt inhalation
+                        is said to
+                        promote respiratory health and skin rejuvenation.</p>
+                </div>
+            </div>
+
+            <!-- Bio Sauna -->
+            <div id="info-bio" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('bio')">×</span>
+                    <h2>Bio Sauna</h2>
+                    <p>A hybrid of the Finnish sauna and steam sauna, the bio sauna uses a lower temperature (50°C to
+                        60°C or 122°F
+                        to 140°F) and higher humidity than the Finnish sauna. It's often used for a gentler sauna
+                        experience.</p>
+                </div>
+            </div>
+
+            <!-- Russian Banya -->
+            <div id="info-russian-banya" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('russian-banya')">×</span>
+                    <h2>Russian Banya</h2>
+                    <p>A traditional Russian sauna that’s similar to the Finnish sauna but includes the use of a venik
+                        (a bundle of
+                        twigs) for gentle tapping, which is believed to enhance circulation.</p>
+                </div>
+            </div>
+
+            <!-- Wooden Sauna -->
+            <div id="info-wooden" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('wooden')">×</span>
+                    <h2>Wooden Sauna</h2>
+                    <p>Similar to the Finnish sauna, but often designed for outdoor use. It’s constructed entirely of
+                        wood, adding
+                        an organic aesthetic to the experience.</p>
+                </div>
+            </div>
+
+            <!-- Portable Sauna -->
+            <div id="info-portable" class="info-wrapper">
+                <div class="info-content">
+                    <span class="close-btn" onclick="hideInfo('portable')">×</span>
+                    <h2>Portable Sauna</h2>
+                    <p>Smaller and more affordable, portable saunas use infrared or steam technology and are typically
+                        made for
+                        personal use at home. They can be set up quickly and packed away after use.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content hero-content1">
+                <div>
+                    <h2>Relax, Refresh, Rejuvenate</h2>
+                    <p>Book your sauna session or join our membership plans for exclusive benefits.</p>
+                    <a href="booking.html" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="hero-content hero-content2">
+                <div>
+                    <h2>Experience Premium Sauna</h2>
+                    <p>Enjoy luxury sauna services for complete body relaxation and detox.</p>
+                    <a href="booking.html" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="hero-content hero-content3">
+                <div>
+                    <h2>Join Our Membership</h2>
+                    <p>Get exclusive discounts and unlimited access to our premium services.</p>
+                    <a href="booking.html" class="btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-Wrapper" id="about">
+        <h2>About Us</h2>
+        <section class="about">
+            <div class="about-content about-block">
+                <div class="about-image">
+                    <img src="images/Sauna_1.jpg" alt="">
+                </div>
+                <div class="about-words">
+                    <div>
+                        <h3>About Our Sauna</h3>
+                        <p>Experience the best sauna and wellness services tailored for relaxation, health, and
+                            rejuvenation.
+                        </p>
+                        <p>Our facilities provide a comfortable and luxurious environment for individuals looking to
+                            unwind
+                            and
+                            maintain a healthy lifestyle.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Story Section -->
+            <div class="about-ourstory about-block">
+                <div class="about-words">
+                    <div>
+                        <h3>Our Story</h3>
+                        <p>Founded with a passion for wellness, our sauna and spa facility was created to provide a
+                            peaceful
+                            escape from the stresses of daily life. We aim to offer our guests not just a sauna, but an
+                            experience that nurtures both the body and the mind. Over the years, we have continually
+                            improved
+                            our services and expanded our offerings to provide a holistic approach to health and
+                            relaxation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <img src="images/Sauna_2.jpg" alt="">
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="service">
+        <h2>Our Services</h2>
+        <div class="service-list">
+            <div class="service">
+                <div class="about-image">
+                    <img src="images/Sauna_2.jpg" alt="">
+                </div>
+                <h3>Sauna Therapy</h3>
+                <p>Sauna Therapy offers premium sessions to relax your body, reduce stress, relieve muscle tension, and
+                    improve overall wellness.</p>
+            </div>
+            <div class="service">
+                <div class="about-image">
+                    <img src="images/Sauna_2.jpg" alt="">
+                </div>
+                <h3>Massage & Spa</h3>
+                <p>Massage & Spa services help relieve stress, ease muscle tension, improve circulation, and promote
+                    relaxation for overall well-being.</p>
+            </div>
+            <div class="service">
+                <div class="about-image">
+                    <img src="images/Sauna_2.jpg" alt="">
+                </div>
+                <h3>Wellness Programs</h3>
+                <p>Wellness Programs offer fitness, detox, and holistic health services designed to improve physical,
+                    mental, and emotional well-being.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <h2>Meet Our Team</h2>
+        <div class="team-wrapper">
+            <div class="team-container">
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="John Doe">
+                    <h3>1 John Doe</h3>
+                    <p>CEO - Leading with vision and innovation.</p>
+                </div>
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="Jane Smith">
+                    <h3>2 Jane Smith</h3>
+                    <p>Manager - Oversees operations and ensures efficiency.</p>
+                </div>
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="Michael Brown">
+                    <h3>3 Michael Brown</h3>
+                    <p>Lead Developer - Crafting innovative solutions.</p>
+                </div>
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="Emily Johnson">
+                    <h3>4 Emily Johnson</h3>
+                    <p>HR - Ensuring a great work environment.</p>
+                </div>
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="David Lee">
+                    <h3>5 David Lee</h3>
+                    <p>Marketing - Spreading our brand worldwide.</p>
+                </div>
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="Sarah White">
+                    <h3>6 Sarah White</h3>
+                    <p>Customer Support - Helping customers with care.</p>
+                </div>
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="Michael Brown">
+                    <h3>7 Michael Brown</h3>
+                    <p>Lead Developer - Crafting innovative solutions.</p>
+                </div>
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="Emily Johnson">
+                    <h3>8 Emily Johnson</h3>
+                    <p>HR - Ensuring a great work environment.</p>
+                </div>
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="David Lee">
+                    <h3>9 David Lee</h3>
+                    <p>Marketing - Spreading our brand worldwide.</p>
+                </div>
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="Sarah White">
+                    <h3>10 Sarah White</h3>
+                    <p>Customer Support - Helping customers with care.</p>
+                </div>
+
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="Sarah White">
+                    <h3>11 Sarah White</h3>
+                    <p>Customer Support - Helping customers with care.</p>
+                </div>
+
+                <div class="staff-member">
+                    <img src="../images/Sauna_2.jpg" alt="David Lee">
+                    <h3>12 David Lee</h3>
+                    <p>Marketing - Spreading our brand worldwide.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+
+        <div class="dots">
+            <span onclick="goToSlide(0)"></span>
+            <span onclick="goToSlide(1)"></span>
+            <span onclick="goToSlide(2)"></span>
+            <span onclick="goToSlide(3)"></span>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p>If you have any questions, feel free to reach out to us using the form or the information below:</p>
+                <ul>
+                    <li><strong>Address:</strong> 123 Sauna Street, Wellness City, ABC</li>
+                    <li><strong>Phone:</strong> +123 456 7890</li>
+                    <li>Whatsapp</li>
+                    <li><strong>Email:</strong> support@company.com</li>
+                    <li><strong>Business Hours:</strong> Mon-Fri 9:00 AM - 5:00 PM</li>
+                </ul>
+
+                <h2>Flow us on</h2>
+                <ul>
+                    <li>facebook</li>
+                    <li>instagram</li>
+                    <li>Twiter</li>
+                    <li>youtube</li>
+                </ul>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <h2>Contact Us</h2>
+                <p>If you have any questions, feel free to reach out to us!</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Enter your message"
+                            rows="5"></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Sauna Management System</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

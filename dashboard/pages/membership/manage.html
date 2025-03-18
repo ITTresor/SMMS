@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Members & Membership Upgrades</title>
+    <link rel="stylesheet" href="manage.css">
+</head>
+
+<body>
+
+    <h2>Manage Members</h2>
+
+    <!-- Search & Filter for Members -->
+    <div class="search-filter-section">
+        <input type="text" id="memberSearchInput" placeholder="Search by Name, Email or Phone" oninput="searchMembers()">
+        <div class="filters">
+            <select id="tierFilter" onchange="filterMembers()">
+                <option value="">Filter by Tier</option>
+                <option value="Gold">Gold</option>
+                <option value="Silver">Silver</option>
+                <option value="Bronze">Bronze</option>
+            </select>
+            <select id="statusFilter" onchange="filterMembers()">
+                <option value="">Filter by Status</option>
+                <option value="Active">Active</option>
+                <option value="Expired">Expired</option>
+                <option value="Pending">Pending</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Member Table -->
+    <table id="memberTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Tier</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="memberTableBody"></tbody>
+    </table>
+
+    <h2>Manage Membership Upgrade Requests</h2>
+
+    <!-- Search & Filter for Upgrade Requests -->
+    <div class="search-filter-section">
+        <input type="text" id="upgradeSearchInput" placeholder="Search by Member Name" oninput="searchUpgradeRequests()">
+        <div class="filters">
+            <select id="currentTierFilter" onchange="filterUpgrades()">
+                <option value="">Filter by Current Tier</option>
+                <option value="Gold">Gold</option>
+                <option value="Silver">Silver</option>
+                <option value="Bronze">Bronze</option>
+            </select>
+            <select id="requestedTierFilter" onchange="filterUpgrades()">
+                <option value="">Filter by Requested Tier</option>
+                <option value="Gold">Gold</option>
+                <option value="Silver">Silver</option>
+                <option value="Bronze">Bronze</option>
+            </select>
+            <select id="upgradeStatusFilter" onchange="filterUpgrades()">
+                <option value="">Filter by Status</option>
+                <option value="Approved">Approved</option>
+                <option value="Pending">Pending</option>
+                <option value="Denied">Denied</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Upgrade Requests Table -->
+    <table id="upgradeRequestsTable">
+        <thead>
+            <tr>
+                <th>Member</th>
+                <th>Current Tier</th>
+                <th>Requested Tier</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="upgradeRequestsBody"></tbody>
+    </table>
+ <script src="manage.js"></script>
+</body>
+
+</html>

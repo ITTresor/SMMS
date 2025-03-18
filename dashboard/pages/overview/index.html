@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Sauna Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Sauna Management Admin Dashboard</h1>
+        </header>
+        
+        <!-- Key Metrics Overview -->
+        <section class="summary">
+            <div class="card" id="total-members">Total Members: 0</div>
+            <div class="card" id="active-memberships">Active Memberships: 0</div>
+            <div class="card" id="expiring-memberships">Expiring Soon: 0</div>
+            <div class="card" id="pending-payments">Pending Payments: 0</div>
+            <div class="card" id="total-revenue">Total Revenue: $0</div>
+            <div class="card" id="upcoming-appointments">Upcoming Appointments: 0</div>
+        </section>
+        
+        <!-- Recent Activities -->
+        <section class="section">
+            <h2>Recent Activities</h2>
+            <ul id="activity-log"></ul>
+        </section>
+        
+         <!-- Membership Insights -->
+         <section class="section">
+            <h2>Membership Insights</h2>
+            <canvas id="membershipChart"></canvas>
+        </section>
+        
+        <!-- Booking Statistics -->
+        <section class="section">
+            <h2>Booking Statistics</h2>
+            <canvas id="bookingChart"></canvas>
+        </section>
+        
+        <!-- Financial Summary -->
+        <section class="section">
+            <h2>Financial Summary</h2>
+            <canvas id="revenueChart"></canvas>
+        </section>
+        
+        <!-- Alerts & Notifications -->
+        <section class="section">
+            <h2>Alerts & Notifications</h2>
+            <ul id="alerts"></ul>
+        </section>
+    </div>
+    
+    
+</body>
+</html>

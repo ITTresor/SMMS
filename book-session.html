@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Session</title>
+    <link rel="stylesheet" href="css/form.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get("type");
+            const service = urlParams.get("service");
+
+            if (type) document.getElementById("serviceType").value = type;
+            if (service) document.getElementById("service").value = service;
+
+            document.getElementById("serviceType").addEventListener("change", updateServices);
+            updateServices();
+        });
+
+        function updateServices() {
+            const massageServices = [
+                "Swedish Massage", "Deep Tissue Massage", "Sports Massage", "Hot Stone Massage",
+                "Aromatherapy Massage", "Shiatsu Massage", "Thai Massage", "Reflexology",
+                "Lomi Lomi Massage", "Cupping Therapy", "Prenatal Massage", "Indian Head Massage",
+                "Myofascial Release", "Trigger Point Therapy", "Chair Massage", "Tui Na Massage"
+            ];
+
+            const saunaServices = [
+                "Traditional Finnish Sauna", "Infrared Sauna", "Steam Sauna (Turkish Bath or Hammam)",
+                "Wet Sauna", "Infrared Light Sauna", "Salt Sauna", "Bio Sauna", "Russian Banya",
+                "Wooden Sauna", "Portable Sauna"
+            ];
+
+            const massageDurations = [
+                "30 minutes - Express Massage", "60 minutes - Standard Massage", 
+                "90 minutes - Premium Massage", "120 minutes - Luxury Massage"
+            ];
+
+            const saunaDurations = [
+                "15 minutes - Quick Sauna", "30 minutes - Standard Sauna", 
+                "45 minutes - Extended Sauna", "60 minutes - Luxury Sauna Experience"
+            ];
+
+            const type = document.getElementById("serviceType").value;
+            const serviceDropdown = document.getElementById("service");
+            const durationDropdown = document.getElementById("duration");
+            serviceDropdown.innerHTML = "";
+            durationDropdown.innerHTML = "";
+
+            let services = type === "massage" ? massageServices : saunaServices;
+            let durations = type === "massage" ? massageDurations : saunaDurations;
+
+            services.forEach(service => {
+                let option = document.createElement("option");
+                option.value = service.toLowerCase().replace(/ /g, "-");
+                option.textContent = service;
+                serviceDropdown.appendChild(option);
+            });
+
+            durations.forEach(duration => {
+                let option = document.createElement("option");
+                option.value = duration.toLowerCase().replace(/ /g, "-");
+                option.textContent = duration;
+                durationDropdown.appendChild(option);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <section class="book-form">
+        <h2>Book a Session</h2>
+        <form action="php/book-session.php" method="get">
+            <div class="form-columun">
+                <div class="form-group">
+                    <label for="serviceType">Service Type:</label>
+                    <select id="serviceType" name="serviceType">
+                        <option value="massage">Massage</option>
+                        <option value="sauna">Sauna</option>
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="service">Service:</label>
+                    <select id="service" name="service"></select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="duration">Duration:</label>
+                    <select id="duration" name="duration"></select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="date">Select Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="time">Select Time:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+            </div>
+        
+            <div class="form-columun">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="tel">Your Phone Number:</label>
+                    <input type="tel" id="tel" name="tel" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="date-of-birth">Your Date of birth:</label>
+                    <input type="date" id="date-of-birth" name="date-of-birth" required>
+                </div>
+        
+                <button type="submit">Book Now</button>
+            </div>
+        </form>
+        
+    </section>
+</body>
+
+</html>

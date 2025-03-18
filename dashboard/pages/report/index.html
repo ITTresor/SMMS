@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reports | Sauna Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <header>
+            <h1>Admin Reports</h1>
+        </header>
+
+        <!-- Filters -->
+        <section class="filters">
+            <label for="dateRange">Select Date Range:</label>
+            <input type="date" id="startDate">
+            <input type="date" id="endDate">
+            <button onclick="generateReport()">Generate Report</button>
+        </section>
+
+        <hr>
+
+        <!-- Membership Report -->
+        <section class="section">
+            <h2>📌 Membership Report</h2>
+            <div class="chart-info-container">
+                <div class="chart-container">
+                    <canvas id="membershipReportChart"></canvas>
+                </div>
+                <div class="info-container" id="membershipinfo">
+
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Revenue Report -->
+        <section class="section">
+            <h2>💰 Revenue Report</h2>
+            <div class="chart-info-container">
+                <div class="chart-container">
+                    <canvas id="revenueReportChart"></canvas>
+                </div>
+                <div class="info-container" id="revenueinfo">
+
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Bookings Report -->
+        <section class="section">
+            <h2>📅 Bookings Report</h2>
+            <div class="chart-info-container">
+                <div class="chart-container">
+                    <canvas id="bookingReportChart"></canvas>
+                </div>
+                <div class="info-container" id="bookinginfo">
+
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Loyalty & Discounts -->
+        <section class="section">
+            <h2>🎟 Loyalty & Discounts</h2>
+            <div class="chart-info-container">
+                <div class="chart-container">
+                    <canvas id="loyaltyReportChart"></canvas>
+                </div>
+                <div class="info-container" id="loyaltyinfo">
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Export Report -->
+        <section class="download-section">
+            <label for="exportType">Export as:</label>
+            <select id="exportType">
+                <option value="pdf">PDF</option>
+                <option value="excel">Excel</option>
+            </select>
+            <button onclick="exportReport()">📥 Export Report</button>
+        </section>
+    </div>
+
+
+    <script src="report.js"></script>
+</body>
+
+</html>

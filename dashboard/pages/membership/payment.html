@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Payment History</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+
+    <!-- Container -->
+    <div class="container">
+        <h1>Member Payment History</h1>
+
+        <!-- Member Search Section -->
+        <div class="search-filter-section">
+            <input type="text" id="paymentSearchInput" placeholder="Search by name, email, or phone..." />
+            <div class="filters">
+                <select id="paymentStatusFilter">
+                    <option value="">Filter by Status</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Failed">Failed</option>
+                </select>
+                <select id="paymentMethodFilter">
+                    <option value="">Filter by Payment Method</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Mobile Money">Mobile Money</option>
+                    <option value="Bank Transfer">Bank Transfer</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Payment History Table -->
+        <table id="paymentHistoryTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Amount</th>
+                    <th>Payment Method</th>
+                    <th>Status</th>
+                    <th>Payment Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Payment records will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>
