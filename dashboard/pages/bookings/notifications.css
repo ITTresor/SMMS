@@ -1,0 +1,106 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+}
+
+header {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+}
+
+/* Notifications Container */
+.notifications-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notifications-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.notifications-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.notifications-header button {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.notifications-header button:hover {
+    background-color: #2ecc71;
+}
+
+/* Notification List */
+ul {
+    list-style: none;
+}
+
+.notification {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    background-color: #ecf0f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.notification.unread {
+    background-color: #f1c40f;
+    color: black;
+    font-weight: bold;
+}
+
+.notification.read {
+    background-color: #e74c3c;
+    color: white;
+    font-weight: normal;
+}
+
+.notification button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.notification button:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .notifications-container {
+        width: 90%;
+    }
+}

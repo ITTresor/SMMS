@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sauna Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>Sauna Dashboard</h2>
+            <ul>
+                <li onclick="showSection('overview')">🏠 Overview</li>
+                <li onclick="showSection('membership')">🎟 Membership</li>
+        
+                <!-- Bookings with Submenu -->
+                <li onclick="toggleSubmenu('bookings-submenu')">📅 Bookings ▾</li>
+                <ul id="bookings-submenu" class="submenu hidden">
+                    <li onclick="showSection('upcoming-bookings')">📌 Upcoming Bookings</li>
+                    <li onclick="showSection('past-bookings')">📖 Booking History</li>
+                    <li onclick="showSection('cancel-booking')">❌ Cancel a Booking</li>
+                </ul>
+        
+                <li onclick="showSection('loyalty')">🎁 Loyalty Points</li>
+                <li onclick="showSection('payments')">💳 Payments</li>
+        
+                <!-- Additional Services with Submenu -->
+                <li onclick="toggleSubmenu('services-submenu')">💆 Additional Services ▾</li>
+                <ul id="services-submenu" class="submenu hidden">
+                    <li onclick="showSection('beauty-grooming')">💅 Beauty & Grooming</li>
+                    <li onclick="showSection('alternative-healing')">🌀 Alternative Healing</li>
+                    <li onclick="showSection('private-vip')">👑 Private & VIP Services</li>
+                    <li onclick="showSection('weight-loss')">🔥 Weight Loss & Body Contouring</li>
+                    <li onclick="showSection('oxygen-aromatherapy')">🌿 Oxygen & Aromatherapy</li>
+                    <li onclick="showSection('corporate-packages')">🏢 Corporate & Group Packages</li>
+                    <li onclick="showSection('healthy-bar')">🥤 Healthy Food & Drinks Bar</li>
+                </ul>
+            </ul>
+        </aside>
+        
+        <script>
+            function toggleSubmenu(id) {
+                let submenu = document.getElementById(id);
+                submenu.classList.toggle('hidden');
+            }
+        </script>
+        <main class="content">
+            <header class="header">
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">FQA</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <section id="overview" class="hidden">
+                <h2>Welcome, John Doe</h2>
+                <p>Your membership is <strong>Active</strong> (Gold Tier)</p>
+                <p>Loyalty Points: <strong>1200</strong></p>
+                <p>Bookings <strong>30</strong></p>
+            </section>
+
+            <section id="membership" class="">
+                <h2>Membership Details</h2>
+                <p>Current Tier: <strong>Gold</strong></p>
+                <p>Renewal Date: <strong>March 10, 2025</strong></p>
+                <p>Loyalty Points: <strong>2500</strong> <small>(5000 needed for next tier)</small></p>
+            
+                <!-- Progress Bar for Next Tier -->
+                <div style="background: #ddd; border-radius: 10px; width: 100%; height: 20px; margin: 10px 0;">
+                    <div style="width: 90%; height: 100%; background: gold; border-radius: 10px;"></div>
+                </div>
+                
+                <p>Next Upgrade: <strong>Platinum</strong> (at 5000 points)</p>
+            
+                <h3>Membership Benefits:</h3>
+                <ul>
+                    <li>✅ Unlimited sauna & spa access</li>
+                    <li>✅ 15% discount on additional services</li>
+                    <li>✅ Exclusive VIP lounge access</li>
+                    <li>✅ Free monthly massage session</li>
+                    <li>✅ Priority booking for private rooms</li>
+                    <li>✅ Complimentary welcome drink on every visit</li>
+                </ul>
+            
+                <h3>Membership History:</h3>
+                <ul>
+                    <li><strong>Gold</strong> - Upgraded on <em>March 10, 2024</em></li>
+                    <li><strong>Silver</strong> - Upgraded on <em>March 10, 2023</em></li>
+                    <li><strong>Bronze</strong> - Joined on <em>March 10, 2022</em></li>
+                </ul>
+            
+                <h3>Exclusive Offers for You:</h3>
+                <ul>
+                    <li>💎 20% off next spa treatment (Expires: March 30, 2025)</li>
+                    <li>🎁 Free facial treatment with your next booking</li>
+                </ul>
+            
+                <button onclick="renewMembership()">Renew Membership</button>
+                <button onclick="upgradeMembership()">Upgrade Tier</button>
+                <button onclick="redeemPoints()">Redeem Loyalty Points</button>
+                <button onclick="viewOffers()">View More Exclusive Offers</button>
+            </section>
+            
+
+            <section id="bookings" class="hidden">
+                <h2>Your Bookings</h2>
+                <ul id="booking-list">
+                    <li>Sauna Session - March 5, 2025</li>
+                    <li>Massage Therapy - March 7, 2025</li>
+                </ul>
+                <button onclick="bookService()">Book a New Service</button>
+            </section>
+
+            <section id="loyalty" class="hidden">
+                <h2>Loyalty Points</h2>
+                <p>You have <strong>1200</strong> points.</p>
+                <button onclick="redeemPoints()">Redeem Points</button>
+            </section>
+
+            <section id="payments" class="hidden">
+                <h2>Payment & Billing</h2>
+                <p>Next Payment: <strong>$50 on March 10, 2025</strong></p>
+                <button onclick="updatePaymentMethod()">Update Payment Method</button>
+            </section>
+
+            <section id="services" class="hidden">
+                <h2>Additional Services</h2>
+                <p>Book additional wellness services:</p>
+                <button onclick="bookExtraService()">Explore Services</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

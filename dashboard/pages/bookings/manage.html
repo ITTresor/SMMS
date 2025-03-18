@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Bookings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .clickable {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* Wrappers (Overlay) */
+        .wrapper {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            background: red;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Manage Bookings</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Service Type</th>
+                <th>Service</th>
+                <th>Date & Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="booking-table">
+            <!-- Data will be inserted dynamically -->
+        </tbody>
+    </table>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="closeWrappers()"></div>
+
+    <!-- User Details Wrapper -->
+    <div class="wrapper" id="user-details">
+        <span class="close-btn" onclick="closeDetails()">X</span>
+        <h3>User Details</h3>
+        <p><strong>Service Type:</strong> <span id="detail-service-type"></span></p>
+        <p><strong>Service:</strong> <span id="detail-service"></span></p>
+        <p><strong>Duration:</strong> <span id="detail-duration"></span> minutes</p>
+        <p><strong>Date:</strong> <span id="detail-date"></span></p>
+        <p><strong>Time:</strong> <span id="detail-time"></span></p>
+        <p><strong>Name:</strong> <span id="detail-name"></span></p>
+        <p><strong>Email:</strong> <span id="detail-email"></span></p>
+        <p><strong>Phone:</strong> <span id="detail-phone"></span></p>
+        <p><strong>Date of Birth:</strong> <span id="detail-dob"></span></p>
+        <p><strong>Payment:</strong> <span id="detail-payment"></span></p>
+        <p><strong>Created At:</strong> <span id="detail-created-at"></span></p>
+        <p><strong>Status:</strong> <span id="detail-status"></span></p>
+
+    </div>
+
+    <!-- Status Update Wrapper -->
+    <div class="wrapper" id="status-update">
+        <span class="close-btn" onclick="closeStatusUpdate()">X</span>
+        <h3>Update Status</h3>
+        <p><strong>New Status:</strong></p>
+        <select id="status-dropdown">
+            <option value="Pending">Pending</option>
+            <option value="Confirmed">Confirmed</option>
+            <option value="Cancelled">Cancelled</option>
+            <option value="Completed">Completed</option>
+        </select>
+        <button onclick="updateStatus()">Update</button>
+    </div>
+
+    <script>
+        let selectedBookingId = null;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchBookings();
+        });
+
+        function fetchBookings() {
+            fetch("../../../php/fetch-bookings.php")
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Fetched Data:", data);
+                    const tableBody = document.getElementById("booking-table");
+                    tableBody.innerHTML = "";
+
+                    if (data.length === 0) {
+                        tableBody.innerHTML = "<tr><td colspan='5'>No bookings found.</td></tr>";
+                        return;
+                    }
+
+                    data.forEach(booking => {
+                        const row = document.createElement("tr");
+
+                        row.innerHTML = `
+                            <td><span class="clickable" onclick="showDetails(${booking.Id}, '${booking.Service_type}', '${booking.Service}', '${booking.Duration}', '${booking.Date}', '${booking.Time}', '${booking.Names}', '${booking.Email}', '${booking.Phone}', '${booking.Date_of_birth}', '${booking.Payment}', '${booking.Created_at}', '${booking.Status}')">${booking.Names}</span></td>
+                            <td>${booking.Service_type}</td>
+                            <td>${booking.Service}</td>
+                            <td>${booking.DateTime}</td>
+                            <td><span class="clickable" onclick="openStatusUpdate(${booking.Id}, '${booking.Status}')">${booking.Status}</span></td>
+                        `;
+
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error("Error fetching bookings:", error));
+        }
+
+        function showDetails(id, serviceType, service, duration, date, time, name, email, phone, dob, payment, createdAt, status) {
+            document.getElementById("detail-service-type").textContent = serviceType;
+            document.getElementById("detail-service").textContent = service;
+            document.getElementById("detail-duration").textContent = duration;
+            document.getElementById("detail-date").textContent = date;
+            document.getElementById("detail-time").textContent = time;
+            document.getElementById("detail-name").textContent = name;
+            document.getElementById("detail-email").textContent = email;
+            document.getElementById("detail-phone").textContent = phone;
+            document.getElementById("detail-dob").textContent = dob;
+            document.getElementById("detail-payment").textContent = payment;
+            document.getElementById("detail-created-at").textContent = createdAt;
+            document.getElementById("detail-status").textContent = status;
+
+            document.getElementById("user-details").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closeDetails() {
+            document.getElementById("user-details").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function openStatusUpdate(id, currentStatus) {
+            selectedBookingId = id;
+            document.getElementById("status-dropdown").value = currentStatus;
+            document.getElementById("status-update").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closeStatusUpdate() {
+            document.getElementById("status-update").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function updateStatus() {
+            if (!selectedBookingId) return;
+
+            let newStatus = document.getElementById("status-dropdown").value;
+
+            fetch("../../../php/update-status.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id: selectedBookingId, status: newStatus }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Status updated successfully!");
+                        fetchBookings(); // Refresh table
+                        closeStatusUpdate(); // Hide status update wrapper
+                    } else {
+                        alert("Failed to update status.");
+                    }
+                })
+                .catch(error => console.error("Error updating status:", error));
+        }
+
+        function closeWrappers() {
+            closeDetails();
+            closeStatusUpdate();
+        }
+    </script>
+
+</body>
+
+</html>

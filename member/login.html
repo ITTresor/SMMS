@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            background-image: url(../images/about.webp);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            width: 300px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 10px;
+            width: 50%;
+            text-align: center;
+            background: #ddd;
+        }
+
+        .tab.active {
+            background: #007BFF;
+            color: white;
+        }
+
+        .form {
+            display: none;
+        }
+
+        .form.active {
+            display: block;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="showForm('login')">Login</div>
+            <div class="tab" onclick="showForm('signup')">Sign Up</div>
+        </div>
+
+        <form id="login" class="form active">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <form id="signup" class="form" action="../php/member-signup.php" method="post">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone" required>
+            <input type="date" name="date-of-birth" required>
+        
+            <!-- Membership Select with name attribute -->
+            <select name="membership">
+                <option value="bronze">Bronze</option>
+                <option value="silver">Silver</option>
+                <option value="gold">Gold</option>
+            </select>
+        
+            <select name="duration">
+                <option value="6 months">6 Months</option>
+                <option value="1 year">1 Year</option>
+            </select>
+        
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        
+    </div>
+
+    <script>
+        function showForm(formId) {
+            document.querySelectorAll('.form').forEach(form => form.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(formId).classList.add('active');
+            document.querySelector(`.tab[onclick="showForm('${formId}')"]`).classList.add('active');
+        }
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        window.onload = function () {
+            const membership = getQueryParam('membership');
+            if (membership) {
+                showForm('signup'); // Open the signup form
+                document.getElementById('membership').value = membership; // Set membership value
+            }
+        }
+    </script>
+</body>
+
+</html>

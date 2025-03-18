@@ -1,0 +1,140 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.about {
+    background: #f0f0f077;
+    max-width: 900px;
+    /* margin: 0 auto; */
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.about-Wrapper{
+    /* background-image: url("../images/about.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+}
+.about-Wrapper h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.about-block {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-words {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-content .about-words {
+    background: rgb(243, 219, 223);
+    transform: translateY(50px);
+    z-index: 12;
+}
+
+.about-ourstory .about-words {
+    background: rgb(185, 221, 185);
+    transform: translateY(-50px);
+}
+
+.about-words {
+    flex: 3;
+    padding: 0 20px;
+}
+
+.about-image {
+    flex: 2;
+}
+
+/* About Image Styling */
+.about-image {
+    flex: 2;
+    height: 300px;
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    z-index: 100;  
+}
+
+.about-words p{
+    z-index: 1200;
+}
+
+.about-words h3{
+    margin-bottom: 20px;
+    color: #1abc9c;
+}
+
+
+@media(max-width:800px){
+    .about-block {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-words{
+        flex: 0 auto;
+        height: auto;
+        
+    }
+
+    .about-content .about-words{
+        transform: translateY(0px);
+        background-color: #fafafa;
+
+    }
+
+    .about-ourstory .about-words{
+        transform: translateY(0px);
+        background-color: #fafafa;
+    }
+
+    .about-image {
+        flex: 0 auto;
+        height: auto;
+        min-width: 100vw;
+        overflow: hidden;
+        margin: auto;
+    }
+    
+
+    .about-image img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        z-index: 100;  
+    }
+
+    .about-ourstory{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

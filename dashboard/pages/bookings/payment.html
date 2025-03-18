@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Management</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <h2>Bookings</h2>
+
+    <!-- Filters -->
+    <div class="filters">
+        <input type="text" id="searchInput" placeholder="Search by Name, Email, Phone" onkeyup="filterTable()">
+        <select id="statusFilter" onchange="filterTable()">
+            <option value="">Filter by Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Confirmed">Confirmed</option>
+            <option value="Cancelled">Cancelled</option>
+            <option value="Completed">Completed</option>
+        </select>
+        <select id="paymentFilter" onchange="filterTable()">
+            <option value="">Filter by Payment</option>
+            <option value="Pending">Pending</option>
+            <option value="Paid">Paid</option>
+            <option value="Failed">Failed</option>
+        </select>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Names</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Payment</th>
+            </tr>
+        </thead>
+        <tbody id="bookingTable"></tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">✖</span>
+            <h3>Update</h3>
+            <label for="updateValue">New Value:</label>
+            <select id="updateValue"></select>
+            <button class="btn-save" onclick="saveUpdate()">Save</button>
+            <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        let bookings = [];
+        let currentEditId = null;
+        let currentEditField = null;
+
+        function fetchData() {
+            fetch('../../../php/booking-payment.php')
+                .then(response => response.json())
+                .then(data => {
+                    bookings = data;
+                    displayData(data);
+                });
+        }
+
+        function displayData(data) {
+            const table = document.getElementById('bookingTable');
+            table.innerHTML = '';
+            data.forEach(booking => {
+                let row = `<tr>
+                    <td>${booking.Id}</td>
+                    <td>${booking.Names}</td>
+                    <td>${booking.Email}</td>
+                    <td>${booking.Phone}</td>
+                    <td onclick="openModal(${booking.Id}, 'Status', '${booking.Status}')">${booking.Status}</td>
+                    <td onclick="openModal(${booking.Id}, 'Payment', '${booking.Payment}')">${booking.Payment}</td>
+                </tr>`;
+                table.innerHTML += row;
+            });
+        }
+
+        function filterTable() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const statusFilter = document.getElementById('statusFilter').value;
+            const paymentFilter = document.getElementById('paymentFilter').value;
+
+            const filteredData = bookings.filter(booking => {
+                return (
+                    (booking.Names.toLowerCase().includes(search) ||
+                     booking.Email.toLowerCase().includes(search) ||
+                     booking.Phone.includes(search)) &&
+                    (statusFilter === '' || booking.Status === statusFilter) &&
+                    (paymentFilter === '' || booking.Payment === paymentFilter)
+                );
+            });
+
+            displayData(filteredData);
+        }
+
+        function openModal(id, field, value) {
+            currentEditId = id;
+            currentEditField = field;
+
+            const select = document.getElementById('updateValue');
+            select.innerHTML = '';
+
+            const options = field === 'Status' 
+                ? ['Pending', 'Confirmed', 'Cancelled', 'Completed'] 
+                : ['Pending', 'Paid', 'Failed'];
+
+            options.forEach(option => {
+                select.innerHTML += `<option value="${option}" ${option === value ? 'selected' : ''}>${option}</option>`;
+            });
+
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function saveUpdate() {
+            const newValue = document.getElementById('updateValue').value;
+
+            fetch('../../../php/update.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ Id: currentEditId, field: currentEditField, value: newValue })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    fetchData();
+                    closeModal();
+                } else {
+                    alert('Update failed!');
+                }
+            });
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>

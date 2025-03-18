@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Report</title>
+    <link rel="stylesheet" href="report.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Container -->
+    <div class="container">
+        <h1>Membership Report</h1>
+
+        <div class="start">
+            <!-- Membership Stats Section -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <h3>Total Members</h3>
+                    <p id="totalMembers">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Members</h3>
+                    <p id="activeMembers">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Expired Members</h3>
+                    <p id="expiredMembers">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <p id="totalRevenue">$0.00</p>
+                </div>
+            </div>
+
+            <!-- Chart for Membership Tier Distribution -->
+            <div class="chart-section">
+                <h2>Membership Tier Distribution</h2>
+                <canvas id="tierChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Membership Tier Distribution Table -->
+        <div class="tier-distribution">
+            <h2>Membership Tier Distribution (Table)</h2>
+            <table id="tierDistributionTable">
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Members</th>
+                        <th>Revenue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Membership tier data will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <button id="exportTierTable" class="export-btn">Export as CSV</button>
+        </div>
+
+        <!-- Expiry Status Table -->
+        <div class="expiry-status">
+            <h2>Membership Expiry Status</h2>
+            <table id="expiryStatusTable">
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Membership Expiry</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Expiry status data will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <button id="exportExpiryTable" class="export-btn">Export as CSV</button>
+        </div>
+    </div>
+
+    <script src="report.js"></script>
+</body>
+
+</html>
